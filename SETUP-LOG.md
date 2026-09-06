@@ -13,15 +13,21 @@ fine for v1).
 - GitHub repo: https://github.com/M-J-29/History-Poll
 - Deploys to Vercel on push to `main`
 
-## Status
+## Status — v1 is LIVE and working
 - [x] GitHub repo created (with README)
 - [x] Supabase project created
 - [x] App code written locally: vote page (`app/page.tsx`) + live results page (`app/results/page.tsx`)
 - [x] Database setup SQL written (`supabase/setup.sql`)
-- [ ] Code pushed to GitHub
-- [ ] SQL run in Supabase (creates `poll_options` + `votes` tables)
-- [ ] Deployed to Vercel with environment variables
-- [ ] End-to-end tested on the live URL
+- [x] Code pushed to GitHub
+- [x] SQL run in Supabase (created `poll_options` + `votes` tables)
+- [x] Deployed to Vercel with environment variables
+- [x] End-to-end tested on the live URL — voting works, results update live across tabs/devices without refreshing
+
+## Live URLs
+- Vote page: https://history-poll.vercel.app
+- Live results: https://history-poll.vercel.app/results
+- Vercel project: m-j-29's projects → history-poll
+- GitHub repo: https://github.com/M-J-29/History-Poll
 
 ## Values to remember
 - Supabase Project URL: `https://zuhtoyqdmbikkmauxmht.supabase.co`
