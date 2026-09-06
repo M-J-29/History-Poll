@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { supabase } from "@/lib/supabase";
 import { getEraTheme } from "@/lib/eras";
 import { GenieCallout } from "@/components/Genie";
@@ -76,60 +77,87 @@ export default function ResultsPage() {
   }
 
   return (
-    <main
-      className={`relative flex min-h-screen flex-col items-center gap-10 overflow-hidden px-4 py-14 transition-colors duration-700 ${theme.bgGradient}`}
-    >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_transparent,_rgba(0,0,0,0.35))]" />
-
-      <div className="relative flex flex-col items-center gap-2 text-center">
-        <p className="font-serif text-sm uppercase tracking-[0.3em] text-yellow-300/80">
-          {votedLabel ?? "Live Results"}
-        </p>
-        <h1 className="font-serif text-3xl font-bold text-yellow-50 sm:text-5xl">
-          Live Results
-        </h1>
+    <main className="relative isolate min-h-screen overflow-hidden bg-[#0b0b16]">
+      {/* Era photo — fixed, fills viewport, sits behind everything. Swaps with theme.image. */}
+      <div className="pointer-events-none fixed inset-0 -z-30" aria-hidden="true">
+        <Image
+          key={theme.image}
+          src={theme.image}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center transition-opacity duration-700"
+        />
       </div>
 
-      {votedLabel && (
-        <div className="relative">
-          <GenieCallout message="Get your bags ready, we're going!" />
+      {/* Central dark mask so the results stay readable — soft radial, sized to fit inside the viewport */}
+      <div
+        className="pointer-events-none fixed inset-0 -z-20"
+        aria-hidden="true"
+        style={{
+          background:
+            "radial-gradient(ellipse 38% 42% at 50% 50%, rgba(8,8,17,0.92) 0%, rgba(8,8,17,0.8) 35%, rgba(8,8,17,0.45) 65%, rgba(8,8,17,0.1) 90%, rgba(8,8,17,0) 100%)",
+        }}
+      />
+
+      {/* Edge vignette to integrate the art into the dark page */}
+      <div
+        className="pointer-events-none fixed inset-0 -z-10 shadow-[inset_0_0_90px_10px_rgba(3,3,9,0.45)]"
+        aria-hidden="true"
+      />
+
+      <div className="relative z-10 flex min-h-screen flex-col items-center gap-10 px-4 py-14">
+        <div className="flex flex-col items-center gap-2 text-center">
+          <p className="font-serif text-sm uppercase tracking-[0.3em] text-yellow-300/80">
+            {votedLabel ?? "Live Results"}
+          </p>
+          <h1 className="font-serif text-3xl font-bold text-yellow-50 sm:text-5xl">
+            Live Results
+          </h1>
         </div>
-      )}
 
-      <div className="relative w-full max-w-2xl space-y-4 rounded-3xl border border-white/10 bg-black/30 p-6 backdrop-blur">
-        {options.map((opt) => {
-          const count = counts[opt.id] ?? 0;
-          const pct = total > 0 ? Math.round((count / total) * 100) : 0;
-          const isMine = opt.order_index === votedOrderIndex;
-          return (
-            <div key={opt.id} className={isMine ? "opacity-100" : "opacity-80"}>
-              <div className="mb-1 flex justify-between text-base font-semibold text-yellow-50 sm:text-lg">
-                <span className="flex items-center gap-2">
-                  {opt.label}
-                  {isMine && (
-                    <span className="rounded-full bg-yellow-400/20 px-2 py-0.5 text-xs font-medium text-yellow-300">
-                      your wish
-                    </span>
-                  )}
-                </span>
-                <span>
-                  {pct}% ({count})
-                </span>
+        {votedLabel && (
+          <div className="relative">
+            <GenieCallout message="Get your bags ready, we're going!" />
+          </div>
+        )}
+
+        <div className="relative w-full max-w-2xl space-y-4 rounded-3xl border border-white/10 bg-black/50 p-6 backdrop-blur-sm">
+          {options.map((opt) => {
+            const count = counts[opt.id] ?? 0;
+            const pct = total > 0 ? Math.round((count / total) * 100) : 0;
+            const isMine = opt.order_index === votedOrderIndex;
+            return (
+              <div key={opt.id} className={isMine ? "opacity-100" : "opacity-80"}>
+                <div className="mb-1 flex justify-between text-base font-semibold text-yellow-50 sm:text-lg">
+                  <span className="flex items-center gap-2">
+                    {opt.label}
+                    {isMine && (
+                      <span className="rounded-full bg-yellow-400/20 px-2 py-0.5 text-xs font-medium text-yellow-300">
+                        your wish
+                      </span>
+                    )}
+                  </span>
+                  <span>
+                    {pct}% ({count})
+                  </span>
+                </div>
+                <div className="h-3 w-full overflow-hidden rounded-full bg-white/10">
+                  <div
+                    className="h-full rounded-full bg-gradient-to-r from-yellow-400 to-yellow-200 transition-all duration-500"
+                    style={{ width: `${pct}%` }}
+                  />
+                </div>
               </div>
-              <div className="h-3 w-full overflow-hidden rounded-full bg-white/10">
-                <div
-                  className="h-full rounded-full bg-gradient-to-r from-yellow-400 to-yellow-200 transition-all duration-500"
-                  style={{ width: `${pct}%` }}
-                />
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
+
+        <p className="font-serif text-sm text-yellow-100/70">
+          {total} vote{total === 1 ? "" : "s"} so far
+        </p>
       </div>
-
-      <p className="relative font-serif text-sm text-yellow-100/70">
-        {total} vote{total === 1 ? "" : "s"} so far
-      </p>
     </main>
   );
 }

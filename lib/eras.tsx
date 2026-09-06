@@ -116,6 +116,7 @@ export type EraTheme = {
   orderIndex: number;
   slug: string;
   shortName: string;
+  image: string;
   bgGradient: string;
   cardBorder: string;
   accentText: string;
@@ -128,6 +129,7 @@ export const ERA_THEMES: EraTheme[] = [
     orderIndex: 1,
     slug: "cossack",
     shortName: "Cossack Ukraine",
+    image: "/history-collage-ukraine.png",
     bgGradient: "bg-gradient-to-br from-[#132a5e] via-[#1e3a78] to-[#d4a017]",
     cardBorder: "border-yellow-500/40",
     accentText: "text-yellow-400",
@@ -138,6 +140,7 @@ export const ERA_THEMES: EraTheme[] = [
     orderIndex: 2,
     slug: "maya",
     shortName: "Maya Civilization",
+    image: "/history-collage-maya.png",
     bgGradient: "bg-gradient-to-br from-[#074a37] via-[#0e6b4a] to-[#3f9e5e]",
     cardBorder: "border-emerald-400/40",
     accentText: "text-emerald-300",
@@ -148,6 +151,7 @@ export const ERA_THEMES: EraTheme[] = [
     orderIndex: 3,
     slug: "pirate",
     shortName: "Pirate Port Royal",
+    image: "/history-collage-pirate.png",
     bgGradient: "bg-gradient-to-br from-[#04303d] via-[#0d5a6b] to-[#e0a83e]",
     cardBorder: "border-teal-400/40",
     accentText: "text-teal-300",
@@ -158,6 +162,7 @@ export const ERA_THEMES: EraTheme[] = [
     orderIndex: 4,
     slug: "opium-wars",
     shortName: "The Opium Wars",
+    image: "/history-collage-opium.png",
     bgGradient: "bg-gradient-to-br from-[#5a0e0e] via-[#7a1616] to-[#d4a017]",
     cardBorder: "border-rose-400/40",
     accentText: "text-rose-300",
@@ -168,6 +173,7 @@ export const ERA_THEMES: EraTheme[] = [
     orderIndex: 5,
     slug: "mughal",
     shortName: "The Mughal Empire",
+    image: "/history-collage-mughal.png",
     bgGradient: "bg-gradient-to-br from-[#4a0f52] via-[#7a1a85] to-[#d4a017]",
     cardBorder: "border-fuchsia-400/40",
     accentText: "text-fuchsia-300",
@@ -178,6 +184,7 @@ export const ERA_THEMES: EraTheme[] = [
     orderIndex: 6,
     slug: "zimbabwe",
     shortName: "Great Zimbabwe",
+    image: "/history-collage-zimbabwe.png",
     bgGradient: "bg-gradient-to-br from-[#5c2e0a] via-[#8a4513] to-[#d4a017]",
     cardBorder: "border-orange-400/40",
     accentText: "text-orange-300",
@@ -190,6 +197,7 @@ const DEFAULT_THEME: EraTheme = {
   orderIndex: 0,
   slug: "default",
   shortName: "Somewhere in History",
+  image: "/history-collage.png",
   bgGradient: "bg-gradient-to-br from-[#0b0b16] via-[#1a1030] to-[#3a2a12]",
   cardBorder: "border-yellow-500/30",
   accentText: "text-yellow-400",
