@@ -103,19 +103,17 @@ export function TowerIcon(props: IconProps) {
 export function GenieLampIcon(props: IconProps) {
   return (
     <IconBase {...props}>
-      {/* base */}
-      <path d="M15 51 Q34 57 53 51" />
       {/* body */}
-      <path d="M17 47 C14 36 22 25 35 25 C47 25 54 33 52 41 C50 48 41 51 33 51 C26 51 18 50 17 47 Z" />
+      <ellipse cx="32" cy="38" rx="16" ry="11" />
+      {/* base */}
+      <path d="M18 46 Q32 51 46 46" />
       {/* spout */}
-      <path d="M17 45 C9 44 4 46 4 50" />
+      <path d="M17 40 Q7 42 5 47 Q4 50 8 48" />
       {/* handle */}
-      <path d="M49 31 C57 29 59 20 51 18" />
+      <path d="M45 30 Q57 30 57 39 Q57 48 45 46" />
       {/* lid knob */}
-      <path d="M35 25 L35 22" />
-      <circle cx="35" cy="20.5" r="2.2" fill="currentColor" stroke="none" />
-      {/* smoke curling from the spout */}
-      <path d="M4 50 Q0 43 6 37 Q2 31 8 25" />
+      <path d="M32 27 L32 23" />
+      <circle cx="32" cy="21.5" r="2.2" fill="currentColor" stroke="none" />
     </IconBase>
   );
 }
