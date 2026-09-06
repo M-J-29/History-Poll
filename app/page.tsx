@@ -73,13 +73,13 @@ export default function VotePage() {
         aria-hidden="true"
         style={{
           background:
-            "radial-gradient(ellipse 60% 65% at 50% 50%, rgba(8,8,17,0.94) 0%, rgba(8,8,17,0.86) 25%, rgba(8,8,17,0.55) 48%, rgba(8,8,17,0.18) 70%, rgba(8,8,17,0.02) 100%)",
+            "radial-gradient(ellipse 38% 42% at 50% 50%, rgba(8,8,17,0.92) 0%, rgba(8,8,17,0.8) 35%, rgba(8,8,17,0.45) 65%, rgba(8,8,17,0.1) 90%, rgba(8,8,17,0) 100%)",
         }}
       />
 
       {/* Edge vignette to integrate the art into the dark page */}
       <div
-        className="pointer-events-none fixed inset-0 -z-10 shadow-[inset_0_0_160px_45px_rgba(3,3,9,0.55)]"
+        className="pointer-events-none fixed inset-0 -z-10 shadow-[inset_0_0_90px_10px_rgba(3,3,9,0.45)]"
         aria-hidden="true"
       />
 
