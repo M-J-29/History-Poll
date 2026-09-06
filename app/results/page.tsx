@@ -79,7 +79,7 @@ export default function ResultsPage() {
     <main
       className={`relative flex min-h-screen flex-col items-center gap-10 overflow-hidden px-4 py-14 transition-colors duration-700 ${theme.bgGradient}`}
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(0,0,0,0.15),_rgba(0,0,0,0.55))]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_transparent,_rgba(0,0,0,0.35))]" />
 
       <div className="relative flex flex-col items-center gap-2 text-center">
         <p className="font-serif text-sm uppercase tracking-[0.3em] text-yellow-300/80">
