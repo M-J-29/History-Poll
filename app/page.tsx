@@ -85,14 +85,14 @@ export default function VotePage() {
 
       <div className="relative z-10 flex min-h-screen flex-col items-center gap-10 px-4 py-14">
         <div className="flex flex-col items-center gap-3 text-center">
-          <GenieLampIcon className="h-14 w-14 text-yellow-400" />
-          <p className="font-serif text-sm uppercase tracking-[0.3em] text-yellow-400/80">
+          <GenieLampIcon className="h-14 w-14 text-yellow-400 drop-shadow-[0_2px_5px_rgba(0,0,0,0.8)]" />
+          <p className="font-serif text-sm uppercase tracking-[0.3em] text-yellow-400/90 drop-shadow-[0_2px_4px_rgba(0,0,0,0.85)]">
             Make your wish
           </p>
-          <h1 className="font-serif text-3xl font-bold leading-tight text-yellow-50 sm:text-5xl">
+          <h1 className="font-serif text-3xl font-bold leading-tight text-yellow-50 drop-shadow-[0_3px_8px_rgba(0,0,0,0.9)] sm:text-5xl">
             If you could travel back to any time period,
           </h1>
-          <p className="font-serif text-3xl font-bold leading-tight text-yellow-50 sm:text-5xl">
+          <p className="font-serif text-3xl font-bold leading-tight text-yellow-50 drop-shadow-[0_3px_8px_rgba(0,0,0,0.9)] sm:text-5xl">
             which would you pick?
           </p>
         </div>
@@ -121,7 +121,7 @@ export default function VotePage() {
           })}
         </div>
 
-        <p className="font-serif text-sm text-yellow-200/60">
+        <p className="font-serif text-sm text-yellow-200/70 drop-shadow-[0_2px_4px_rgba(0,0,0,0.85)]">
           One wish per person — choose carefully.
         </p>
       </div>
