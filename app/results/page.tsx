@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { supabase } from "@/lib/supabase";
 import { getEraTheme } from "@/lib/eras";
-import { GenieCallout } from "@/components/Genie";
 
 type Option = { id: string; label: string; order_index: number };
 type Counts = Record<string, number>;
@@ -108,20 +107,14 @@ export default function ResultsPage() {
       />
 
       <div className="relative z-10 flex min-h-screen flex-col items-center gap-10 px-4 py-14">
-        <div className="flex flex-col items-center gap-2 text-center">
-          <p className="font-serif text-sm uppercase tracking-[0.3em] text-yellow-300/80">
-            {votedLabel ?? "Live Results"}
-          </p>
-          <h1 className="font-serif text-3xl font-bold text-yellow-50 sm:text-5xl">
+        <div className="mt-16 flex flex-col items-center gap-2 text-center sm:mt-24">
+          <p className="font-serif text-sm uppercase tracking-[0.3em] text-yellow-300/90 drop-shadow-[0_2px_4px_rgba(0,0,0,0.85)]">
             Live Results
+          </p>
+          <h1 className="font-serif text-3xl font-bold text-yellow-50 drop-shadow-[0_3px_8px_rgba(0,0,0,0.9)] sm:text-5xl">
+            {votedLabel ?? "Somewhere in History"}
           </h1>
         </div>
-
-        {votedLabel && (
-          <div className="relative">
-            <GenieCallout message="Get your bags ready, we're going!" />
-          </div>
-        )}
 
         <div className="relative w-full max-w-2xl space-y-4 rounded-3xl border border-white/10 bg-black/50 p-6 backdrop-blur-sm">
           {options.map((opt) => {
