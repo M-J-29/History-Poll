@@ -7,6 +7,20 @@ This is the **simple v1** — no host controls, no room codes, no lobby. One glo
 anyone with the link can vote once (enforced client-side via localStorage, not bulletproof —
 fine for v1).
 
+**Design v2 (current):** upscale dark/gold theme, genie lamp motif, 6 historical eras
+(Cossack Ukraine, Maya Civilization, Pirate Port Royal, Opium Wars, Mughal Empire,
+Great Zimbabwe) each with a custom line-art icon and a distinct background gradient.
+On `/results`, the whole page background themes itself to whichever era the current
+visitor voted for, plus a genie character saying "Get your bags ready, we're going!"
+Theme config lives in `lib/eras.tsx`.
+
+Known gotcha we hit and fixed: Tailwind only compiles CSS for class names it finds by
+scanning the files listed in `tailwind.config.ts`'s `content` array. Since `lib/eras.tsx`
+wasn't in that list, all the era colors silently did nothing (no error, just no color).
+Fixed by adding `"./lib/**/*.{ts,tsx}"` to `content`. Worth remembering: **any new folder
+with Tailwind class names in it must be added to that array**, or its styles vanish
+silently with no build error.
+
 ## Stack
 - Next.js 15 (App Router, TypeScript), Tailwind CSS
 - Supabase (Postgres + Realtime), no Supabase Auth
