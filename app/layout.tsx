@@ -1,5 +1,16 @@
 import type { Metadata } from "next";
+import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
+
+const displayFont = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-display",
+});
+
+const bodyFont = Inter({
+  subsets: ["latin"],
+  variable: "--font-body",
+});
 
 export const metadata: Metadata = {
   title: "Travel Back in Time — Poll",
@@ -12,8 +23,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="min-h-screen bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 text-white">
+    <html lang="en" className={`${displayFont.variable} ${bodyFont.variable}`}>
+      <body className="min-h-screen bg-[#0b0b16] font-sans text-white">
         {children}
       </body>
     </html>
