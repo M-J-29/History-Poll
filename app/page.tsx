@@ -54,7 +54,7 @@ export default function VotePage() {
   }
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#0b0b16]">
+    <main className="relative isolate min-h-screen overflow-hidden bg-[#0b0b16]">
       {/* Historical collage — fixed, fills viewport, sits behind everything */}
       <div className="pointer-events-none fixed inset-0 -z-30" aria-hidden="true">
         <Image
